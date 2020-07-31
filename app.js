@@ -43,7 +43,7 @@ function init(){
     loader.load('./3d/2_House/scene.gltf',function (gltf){
         scene.add(gltf.scene);
         house_2 = gltf.scene.children[0];
-        house_2.position.x = -12;
+        house_2.position.x = -8;
         house_2.scale.set(0.5, 0.5, 0.5)
         
         animaition2();
@@ -52,7 +52,7 @@ function init(){
     loader.load('./3d/3_House/scene.gltf',function (gltf){
         scene.add(gltf.scene);
         house_3 = gltf.scene.children[0];
-        house_3.position.x = 12;
+        house_3.position.x = 7;
         house_3.scale.set(0.17, 0.17, 0.17)
         
         animaition3();
