@@ -2,8 +2,9 @@ let container;
 let camera;
 let renderer;
 let scene;
-let house;
-let house2;
+let house_1;
+let house_2;
+let house_3;
 
 function init(){
     container = document.getElementById('scene');
@@ -33,30 +34,45 @@ function init(){
 
     //load modal
     let loader = new THREE.GLTFLoader();
-    loader.load('./3d/scene.gltf', function (gltf){
+    loader.load('./3d/1_House/scene.gltf', function (gltf){
         scene.add(gltf.scene);
-        house = gltf.scene.children[0];
+        house_1 = gltf.scene.children[0];
         animaition();
     });
 
-    loader.load('./3d/secondHome/scene.gltf',function (gltf){
+    loader.load('./3d/2_House/scene.gltf',function (gltf){
         scene.add(gltf.scene);
-        house2 = gltf.scene.children[0];
-        house2.position.x = -15;
-        house2.scale.set(0.5, 0.5, 0.5)
+        house_2 = gltf.scene.children[0];
+        house_2.position.x = -12;
+        house_2.scale.set(0.5, 0.5, 0.5)
         
         animaition2();
     });
 
+    loader.load('./3d/3_House/scene.gltf',function (gltf){
+        scene.add(gltf.scene);
+        house_3 = gltf.scene.children[0];
+        house_3.position.x = 12;
+        house_3.scale.set(0.17, 0.17, 0.17)
+        
+        animaition3();
+    });
+
     function animaition(){
         requestAnimationFrame(animaition);
-        house.rotation.z += 0.005;
+        house_1.rotation.z += 0.005;
         renderer.render(scene, camera);
     }
 
     function animaition2(){
         requestAnimationFrame(animaition2);
-        house2.rotation.z += 0.005;
+        house_2.rotation.z += 0.005;
+        renderer.render(scene, camera);
+    }
+
+    function animaition3(){
+        requestAnimationFrame(animaition3);
+        house_3.rotation.z += 0.005;
         renderer.render(scene, camera);
     }
 }
